@@ -1,5 +1,7 @@
 package com.boardcamp.api.models;
 
+import com.boardcamp.api.dtos.CustomersDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,6 +18,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "customers")
 public class CustomersModel {
+  CustomersModel(CustomersDTO dto){
+    this.name = dto.getName();
+    this.cpf = dto.getCpf();
+  }
+  
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
