@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.Data;
 
 @Data
-public class GamesDTO {
+public class GameDTO {
 	@NotBlank
     private String name;
 

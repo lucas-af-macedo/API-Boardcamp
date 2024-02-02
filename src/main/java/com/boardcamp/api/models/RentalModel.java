@@ -2,7 +2,7 @@ package com.boardcamp.api.models;
 
 import java.time.LocalDate;
 
-import com.boardcamp.api.dtos.RentalsDTO;
+import com.boardcamp.api.dtos.RentalDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,8 +21,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "rentals")
-public class RentalsModel {
-  RentalsModel(RentalsDTO dto, GamesModel game, CustomersModel customer, LocalDate rentDate, Long originalPrice){
+public class RentalModel {
+  RentalModel(RentalDTO dto, GameModel game, CustomerModel customer, LocalDate rentDate, Long originalPrice){
     this.customer = customer;
     this.game = game;
     this.daysRented = dto.getDaysRented();
@@ -36,11 +36,11 @@ public class RentalsModel {
 
   @ManyToOne
   @JoinColumn(name = "customerId", referencedColumnName = "id", nullable = false)
-  private CustomersModel customer;
+  private CustomerModel customer;
 
   @ManyToOne
   @JoinColumn(name = "gameId", referencedColumnName = "id", nullable = false)
-  private GamesModel game;
+  private GameModel game;
 
   @Column(nullable = false)
   private LocalDate rentDate;

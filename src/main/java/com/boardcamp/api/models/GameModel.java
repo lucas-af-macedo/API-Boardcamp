@@ -1,6 +1,6 @@
 package com.boardcamp.api.models;
 
-import com.boardcamp.api.dtos.GamesDTO;
+import com.boardcamp.api.dtos.GameDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,8 +17,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "games")
-public class GamesModel {
-  GamesModel(GamesDTO dto){
+public class GameModel {
+  GameModel(GameDTO dto){
     this.name = dto.getName();
     this.image = dto.getImage();
     this.stockTotal = dto.getStockTotal();

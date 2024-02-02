@@ -1,6 +1,6 @@
 package com.boardcamp.api.models;
 
-import com.boardcamp.api.dtos.CustomersDTO;
+import com.boardcamp.api.dtos.CustomerDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,8 +17,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "customers")
-public class CustomersModel {
-  CustomersModel(CustomersDTO dto){
+public class CustomerModel {
+  CustomerModel(CustomerDTO dto){
     this.name = dto.getName();
     this.cpf = dto.getCpf();
   }
