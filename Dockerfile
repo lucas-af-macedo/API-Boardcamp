@@ -1,11 +1,11 @@
 # Estágio de construção
-FROM eclipse-temurin:17-jdk-alpine AS build
+FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /app
 COPY . .
 RUN ./mvnw clean install -DskipTests
 
 # Estágio de execução
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar api.jar
 EXPOSE 8080
