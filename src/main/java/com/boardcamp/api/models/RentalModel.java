@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "rentals")
 public class RentalModel {
-  RentalModel(RentalDTO dto, GameModel game, CustomerModel customer, LocalDate rentDate, Long originalPrice){
+  public RentalModel(RentalDTO dto, GameModel game, CustomerModel customer, LocalDate rentDate, Long originalPrice){
     this.customer = customer;
     this.game = game;
     this.daysRented = dto.getDaysRented();

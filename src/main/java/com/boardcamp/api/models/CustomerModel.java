@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "customers")
 public class CustomerModel {
-  CustomerModel(CustomerDTO dto){
+  public CustomerModel(CustomerDTO dto){
     this.name = dto.getName();
     this.cpf = dto.getCpf();
   }

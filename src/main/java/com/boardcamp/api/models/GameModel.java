@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "games")
 public class GameModel {
-  GameModel(GameDTO dto){
+  public GameModel(GameDTO dto){
     this.name = dto.getName();
     this.image = dto.getImage();
     this.stockTotal = dto.getStockTotal();
