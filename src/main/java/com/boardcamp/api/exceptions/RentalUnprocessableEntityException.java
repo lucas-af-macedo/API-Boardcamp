@@ -1,7 +1,7 @@
 package com.boardcamp.api.exceptions;
 
-public class CustomerUnprocessableEntityException extends RuntimeException{
-    public CustomerUnprocessableEntityException(String message){
+public class RentalUnprocessableEntityException extends RuntimeException{
+    public RentalUnprocessableEntityException(String message){
         super(message);
     }
 }
