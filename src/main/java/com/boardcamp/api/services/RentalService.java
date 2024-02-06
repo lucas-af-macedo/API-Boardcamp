@@ -15,6 +15,7 @@ import com.boardcamp.api.repositories.GameRepository;
 import com.boardcamp.api.repositories.RentalRepository;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 @Service
 public class RentalService {
@@ -50,6 +51,30 @@ public class RentalService {
 
     public List<RentalModel> findAll(){
         return rentalRepository.findAll();
+    }
+
+    public RentalModel returnRental(long id){
+        RentalModel rental = rentalRepository.findById(id).orElseThrow(
+			() -> new RentalNotFoundException("Rental not found!")
+		);
+        if (rental.getReturnDate() != null){
+            throw new RentalUnprocessableEntityException("Rental already finished!");
+        }
+
+        LocalDate returnDate =  LocalDate.now();
+        long diffDays = ChronoUnit.DAYS.between(rental.getRentDate(), returnDate);
+        
+
+        if (diffDays > rental.getDaysRented()){
+            long delayedDays = diffDays - rental.getDaysRented();
+            long delayFee = rental.getGame().getPricePerDay() * delayedDays;
+
+            rental.setDelayFee(delayFee);
+        }
+        
+        rental.setReturnDate(returnDate);
+
+        return rentalRepository.save(rental);
     }
 
     boolean stockAvaible(long gameId, long stockTotal){
