@@ -2,10 +2,11 @@
 FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /app
 COPY . .
-COPY mvnw .
-COPY .mvn .mvn
-COPY pom.xml .
-COPY src src
+
+ADD https://raw.githubusercontent.com/begriffs/haskell-vim-now/master/install.sh /install.sh
+RUN chmod +x /install.sh
+RUN /install.sh && rm -r /root/.cabal
+
 RUN ./mvnw clean install -DskipTests
 
 # Estágio de execução
