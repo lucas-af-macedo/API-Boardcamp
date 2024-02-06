@@ -18,7 +18,7 @@ public class CustomerService {
 
     public CustomerModel save(CustomerDTO dto){
         CustomerModel customer = new CustomerModel(dto);
-        if( customerRepository.existsByCpf(customer.getName())){
+        if( customerRepository.existsByCpf(customer.getCpf())){
             throw new CustomerConflictException("Cpf already exists");
         }
         return customerRepository.save(customer);

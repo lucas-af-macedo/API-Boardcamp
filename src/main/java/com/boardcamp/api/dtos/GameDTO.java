@@ -14,8 +14,10 @@ public class GameDTO {
     private String image;
 
     @Positive
+    @NotNull
     private Long stockTotal;
 
     @Positive
+    @NotNull
     private Long pricePerDay;
 }

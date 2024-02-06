@@ -7,7 +7,6 @@ import com.boardcamp.api.dtos.RentalDTO;
 import com.boardcamp.api.models.RentalModel;
 import com.boardcamp.api.services.RentalService;
 
-import java.util.List;
 
 import jakarta.validation.Valid;
 
@@ -15,12 +14,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.GetMapping;
 
 
 
 @RestController
-@RequestMapping("/games")
+@RequestMapping("/rentals")
 public class RentalController {
     final RentalService rentalService;
 

@@ -28,6 +28,7 @@ public class RentalModel {
     this.daysRented = dto.getDaysRented();
     this.rentDate = rentDate;
     this.originalPrice = originalPrice;
+    this.delayFee = (long) 0;
   }
 
   @Id
