@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.boardcamp.api.dtos.CustomerDTO;
 import com.boardcamp.api.exceptions.CustomerConflictException;
+import com.boardcamp.api.exceptions.CustomerNotFoundException;
 import com.boardcamp.api.models.CustomerModel;
 import com.boardcamp.api.repositories.CustomerRepository;
 
@@ -21,5 +22,12 @@ public class CustomerService {
             throw new CustomerConflictException("Cpf already exists");
         }
         return customerRepository.save(customer);
+    }
+
+    public CustomerModel findById(long id){
+        if( !customerRepository.existsById(id)){
+            throw new CustomerNotFoundException("Customer not found!");
+        }
+        return customerRepository.findById(id);
     }
 }
