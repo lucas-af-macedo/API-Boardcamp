@@ -55,6 +55,6 @@ public class RentalModel {
   @Column(nullable = false)
   private Long originalPrice;
 
-  @Column(columnDefinition = "bigint default 0")
+  @Column(nullable = false, columnDefinition = "bigint default 0")
   private Long delayFee;
 }
